@@ -36,6 +36,7 @@
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
+                        alert("OK");
                         $('body').html(data.Message);
                         autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {

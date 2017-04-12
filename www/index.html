@@ -19,7 +19,6 @@
 
         function onDeviceReady(){
 
-alert("1");
             LoadContent();
         }
 
@@ -37,7 +36,6 @@ alert("1");
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
-                        alert("OK");
                         Dom7('body').html(data.Message);
                         autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {
@@ -53,8 +51,8 @@ alert("1");
               });
 
              }
-             catch (err) {
-                alert("Error: " + err);
+             catch () {
+                alert("Error: ");
              }
         }
 

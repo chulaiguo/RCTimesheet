@@ -28,7 +28,8 @@
 
         function LoadContent(){
 
-           $.ajax({
+          try {
+             $.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
@@ -47,7 +48,12 @@
                     alert("The network is not available." + x.responseText);
                     navigator.splashscreen.hide();
                 }
-             });
+              });
+
+             }
+             catch (err) {
+                alert("Error: " + err);
+             }
         }
 
     </script>

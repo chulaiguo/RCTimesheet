@@ -19,6 +19,7 @@
      <script>
 
         function onLoad() {
+			alert("OK");
            LoadContent();
              //document.addEventListener("deviceready", onDeviceReady, false);
         }
@@ -30,12 +31,14 @@
 
         function LoadContent(){
 
+             alert("1");
              $.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
+					alert("2");
                     if (data.OK) {
                         $('body').html(data.Message);
                         autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");

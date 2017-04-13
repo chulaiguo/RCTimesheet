@@ -29,6 +29,14 @@
         function LoadContent(){
 
            document.write("Load Content....");
+		   if(window.autoRemotingLogin)
+			{
+				document.write("OK");
+			}
+			else
+			{
+				 document.write("no");
+			}
            try
            {
            Dom7.ajax({

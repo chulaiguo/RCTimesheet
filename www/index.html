@@ -25,30 +25,21 @@
 
         document.addEventListener("deviceready", onDeviceReady, false);
 
-        
 
         function LoadContent(){
 
            document.write("Load Content....");
-		   if(!window.myApp)
-			{
-               document.write("error");
-			}
-			else
-			{
-				document.write("ok");
-			}
            try
            {
-           Dom7.ajax({
+           $.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
-                        //Dom7('body').html(data.Message);
-                        //window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
+                        $('body').html(data.Message);
+                        autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {
                         alert(data.Message);
                     }

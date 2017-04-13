@@ -30,6 +30,8 @@
         function LoadContent(){
 
            document.write("Load Content....");
+           try
+           {
            $.ajax({
                 type: "get",
                 dataType: "json",
@@ -50,6 +52,11 @@
                     navigator.splashscreen.hide();
                 }
               });
+           }
+           catch (error)
+           {
+			   document.write(error);
+           }
         }
 
     </script>

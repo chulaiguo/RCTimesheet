@@ -39,7 +39,14 @@
                 success: function (data) {
                     if (data.OK) {
                         Dom7('body').html(data.Message);
-                        window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
+						if(window.autoRemotingLogin)
+						{
+                            window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
+						}
+						else
+						{
+							 document.write("xxx....");
+						}
                     } else {
                         alert(data.Message);
                     }

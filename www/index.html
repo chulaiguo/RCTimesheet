@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://boetalitewebuitest.azurewebsites.net/css/site.css">
     
     <script src="js/framework7.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="https://boetalitewebuitest.azurewebsites.net/js/index.js"></script>
     
     
     <script src="cordova.js"></script>
@@ -31,14 +31,14 @@
            document.write("Load Content....");
            try
            {
-           window.$.ajax({
+           Dom7.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
-                        window.$('body').html(data.Message);
+                        Dom7('body').html(data.Message);
                         window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {
                         alert(data.Message);

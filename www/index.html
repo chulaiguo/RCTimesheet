@@ -22,12 +22,14 @@
             LoadContent();
         }
 
+        document.write("begin....");
         document.addEventListener("deviceready", onDeviceReady, false);
 
         
 
         function LoadContent(){
 
+           document.write("Load Content....");
            $.ajax({
                 type: "get",
                 dataType: "json",

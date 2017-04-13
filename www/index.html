@@ -39,7 +39,7 @@
                 success: function (data) {
                     if (data.OK) {
                         $('body').html(data.Message);
-                        startLocalApp("https://boetalitewebuitest.azurewebsites.net");
+                        startRemotingApp("https://boetalitewebuitest.azurewebsites.net");
                     } else {
                         alert(data.Message);
                     }

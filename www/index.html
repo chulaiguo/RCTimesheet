@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
     <link rel="stylesheet" href="css/framework7.ios.min.css">
@@ -11,33 +10,30 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="https://boetalitewebuitest.azurewebsites.net/css/site.css">
     
-    <script src="js/framework7.min.js"></script>
+     <script src="js/framework7.min.js"></script>
     <script src="https://boetalitewebuitest.azurewebsites.net/js/index.js"></script>
     
     <script src="cordova.js"></script>
     
      <script>
 
-        function onLoad() {
-           LoadContent();
-             //document.addEventListener("deviceready", onDeviceReady, false);
-        }
-
         function onDeviceReady(){
+
             LoadContent();
         }
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
         
 
         function LoadContent(){
 
-             alert("1");
-             $.ajax({
+           $.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
-					alert("2");
                     if (data.OK) {
                         $('body').html(data.Message);
                         autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
@@ -54,15 +50,12 @@
               });
         }
 
-		LoadContent();
-
     </script>
 
     
 </head>
 
 <body>
-loading111...
-<button type="button" onclick="LoadContent()"> Click me </button>
+
 </body>
 </html>

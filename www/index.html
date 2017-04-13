@@ -18,14 +18,13 @@
     
      <script>
 
-        function onDeviceReady(){
-            alert("OK");
-            //LoadContent();
+        function onLoad() {
+             document.addEventListener("deviceready", onDeviceReady, false);
         }
 
-        document.addEventListener("deviceready", onDeviceReady, false);
-		LoadContent();
-
+        function onDeviceReady(){
+            LoadContent();
+        }
         
 
         function LoadContent(){
@@ -57,7 +56,7 @@
     
 </head>
 
-<body>
+<body onload="onLoad()">
 loading...
 </body>
 </html>

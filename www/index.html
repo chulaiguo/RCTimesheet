@@ -32,14 +32,14 @@
            document.write("Load Content....");
            try
            {
-           Dom7.ajax({
+           $.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
-                        Dom7('body').html(data.Message);
+                        $('body').html(data.Message);
                         autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {
                         alert(data.Message);

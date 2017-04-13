@@ -1,3 +1,5 @@
+(function(){ 
+
 window.url_base = "";
 
 window.myApp = new Framework7({
@@ -72,7 +74,7 @@ function backToRegionHome() {
     window.jobView.router.back({ pageName: "page_region", force: true });
 }
 
-var $ = Dom7;
+window.$ = Dom7;
 
 myApp.dataBinding = function ($target, data) {
     if ($target.length !== 1)
@@ -245,7 +247,7 @@ $(document).on("click", "#common_camera_clock_ok", function () {
             $.ajax({
                 type: "post",
                 dataType: 'json',
-                url: url_base + url,
+                url: window.url_base + url,
                 data: { HRTimeSheetPK: timesheetPK.split("|")[0], Photo: imgData },
                 success: function (data) {
                     if (data.OK) {
@@ -316,7 +318,7 @@ $(document).on("click", "#menu_region", function () {
             $.ajax({
                 type: "post",
                 dataType: 'json',
-                url: url_base + "/Region/SearchByJobNumber",
+                url: window.url_base + "/Region/SearchByJobNumber",
                 data: { JobNumber: jobNumber },
                 success: function (data) {
                     if (data.OK) {
@@ -434,7 +436,7 @@ function markEmployeeStatus(status, timesheetPK) {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Employee/Status",
+        url: window.url_base + "/Employee/Status",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0], statusType: status, UserToken: user_token, Notes: reason },
         success: function (data) {
             if (data.OK) {
@@ -567,7 +569,7 @@ $(document).on("click", "#save_employee_timesheet_add", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Employee/AddNewTimeSheet",
+        url: window.url_base + "/Employee/AddNewTimeSheet",
         data: model,
         success: function (data) {
             if (data.OK) {
@@ -598,7 +600,7 @@ $(document).on("click", "[data-employee-detail]", function () {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: url_base + "/Employee/TimeSheetDetail",
+        url: window.url_base + "/Employee/TimeSheetDetail",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0] },
         success: function (data) {
             if (data.OK) {
@@ -631,7 +633,7 @@ $(document).on("click", "#delete_employee_timesheet", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Employee/DeleteTimeSheet",
+        url: window.url_base + "/Employee/DeleteTimeSheet",
         data: { HRTimeSheetPK: timesheetPK },
         success: function (msg) {
             if (msg.OK) {
@@ -654,7 +656,7 @@ $(document).on("click", "#edit_employee_timesheet", function () {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: url_base + "/Employee/TimeSheetEdit",
+        url: window.url_base + "/Employee/TimeSheetEdit",
         data: { HRTimeSheetPK: timesheetPK },
         success: function (data) {
             if (data.OK) {
@@ -686,7 +688,7 @@ $(document).on("click", "#save_employee_timesheet_edit", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Employee/TimeSheetEdit",
+        url: window.url_base + "/Employee/TimeSheetEdit",
         data: window.myApp.formToJSON('#form_employee_timesheet_edit'),
         success: function (data) {
             if (data.OK) {
@@ -726,7 +728,7 @@ $(document).on("click", "#search_job_number", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/Search",
+        url: window.url_base + "/Job/Search",
         data: window.myApp.formToJSON('#form_job_search_job'),
         success: function (data) {
             if (data.OK) {
@@ -779,7 +781,7 @@ $(document).on("click", "#search_job_date", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/Search",
+        url: window.url_base + "/Job/Search",
         data: window.myApp.formToJSON('#form_job_search_date'),
         success: function (data) {
             if (data.OK) {
@@ -824,7 +826,7 @@ $(document).on("click", "[data-job-break]", function () {
     $.ajax({
         type: "post",
         dataType: "json",
-        url: url_base + "/Job/Break",
+        url: window.url_base + "/Job/Break",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0] },
         success: function (data) {
             if (data.OK) {
@@ -918,7 +920,7 @@ function markJobEmployeeStatus(status, timesheetPK)
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/Status",
+        url: window.url_base + "/Job/Status",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0], statusType: status, UserToken: user_token, Notes: reason },
         success: function (data) {
             if (data.OK) {
@@ -972,7 +974,7 @@ $(document).on("click", "#save_job_timesheet_add", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/AddNewTimeSheet",
+        url: window.url_base + "/Job/AddNewTimeSheet",
         data: model,
         success: function (data) {
             if (data.OK) {
@@ -998,7 +1000,7 @@ $(document).on("click", "[data-job-detail]", function () {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: url_base + "/Job/TimeSheetDetail",
+        url: window.url_base + "/Job/TimeSheetDetail",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0] },
         success: function (data) {
             if (data.OK) {
@@ -1035,7 +1037,7 @@ $(document).on("click", "#delete_job_timesheet", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/DeleteTimeSheet",
+        url: window.url_base + "/Job/DeleteTimeSheet",
         data: { HRTimeSheetPK: timesheetPK },
         success: function (data) {
             if (data.OK) {
@@ -1058,7 +1060,7 @@ $(document).on("click", "#edit_job_timesheet", function () {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: url_base + "/Job/TimeSheetEdit",
+        url: window.url_base + "/Job/TimeSheetEdit",
         data: { HRTimeSheetPK: timesheetPK },
         success: function (data) {
             if (data.OK) {
@@ -1088,7 +1090,7 @@ $(document).on("click", "#save_job_timesheet_edit", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Job/TimeSheetEdit",
+        url: window.url_base + "/Job/TimeSheetEdit",
         data: window.myApp.formToJSON('#form_job_timesheet_edit'),
         success: function (data) {
             if (data.OK) {
@@ -1120,7 +1122,7 @@ $(document).on("click", "#search_region_name", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Region/GetRegionList",
+        url: window.url_base + "/Region/GetRegionList",
         data: window.myApp.formToJSON('#form_region_search_name'),
         success: function (data) {
             if (data.OK) {
@@ -1156,7 +1158,7 @@ $(document).on("click", "#search_region_pk", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Region/SearchByRegion",
+        url: window.url_base + "/Region/SearchByRegion",
         data: window.myApp.formToJSON('#form_region_search_pk'),
         success: function (data) {
             if (data.OK) {
@@ -1203,7 +1205,7 @@ $(document).on("click", "[data-region-edit]", function () {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: url_base + "/Region/TimeSheetEdit",
+        url: window.url_base + "/Region/TimeSheetEdit",
         data: { HRTimeSheetPK: timesheetPK.split("|")[0] },
         success: function (data) {
             if (data.OK) {
@@ -1233,7 +1235,7 @@ $(document).on("click", "#save_region_timesheet_edit", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Region/TimeSheetEdit",
+        url: window.url_base + "/Region/TimeSheetEdit",
         data: window.myApp.formToJSON('#form_region_timesheet_edit'),
         success: function (data) {
             if (data.OK) {
@@ -1265,7 +1267,7 @@ $(document).on("click", "#signin_user_login", function () {
     $.ajax({
         type: "post",
         dataType:'json',
-        url: url_base + "/Home/Login",
+        url: window.url_base + "/Home/Login",
         data: model,
         success: function (msg) {
             if (msg.OK) {
@@ -1312,7 +1314,7 @@ $(document).on("click", "#signin_user_login", function () {
                     $.ajax({
                         type: "post",
                         dataType: 'json',
-                        url: url_base + "/Employee/Search",
+                        url: window.url_base + "/Employee/Search",
                         data: { UserToken: msg.UserToken },
                         success: function (data) {
                             if (data.OK) {
@@ -1382,7 +1384,7 @@ $(document).on("click", "#ok_user_change_passord", function () {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url_base + "/Home/ChangePassword",
+        url: window.url_base + "/Home/ChangePassword",
         data: model,
         success: function (data) {
             if (data.OK) {
@@ -1412,7 +1414,7 @@ function autoLogin() {
     }
 
     var link = document.createElement("link");
-    link.href = url_base + "/css/" + company_name + ".css";
+    link.href = window.url_base + "/css/" + company_name + ".css";
     link.rel = "stylesheet";
     document.getElementsByTagName("head")[0].appendChild(link);
 
@@ -1427,7 +1429,7 @@ function autoLogin() {
         $.ajax({
                 type: "post",
                 dataType: 'json',
-                url: url_base + "/Home/Login",
+                url: window.url_base + "/Home/Login",
                 data: { UserToken: user_token },
                 success: function (msg) {
                     if (msg.OK) {
@@ -1470,7 +1472,7 @@ function autoLogin() {
                             $.ajax({
                                 type: "post",
                                 dataType: 'json',
-                                url: url_base + "/Employee/Search",
+                                url: window.url_base + "/Employee/Search",
                                 data: { UserToken: user_token },
                                 success: function(data) {
                                     if (data.OK) {
@@ -1500,7 +1502,7 @@ function autoLogin() {
                                 $.ajax({
                                     type: "post",
                                     dataType: 'json',
-                                    url: url_base + "/Job/Search",
+                                    url: window.url_base + "/Job/Search",
                                     data: { UserToken: user_token, JobNumber: user_job },
                                     success: function (data) {
                                         if (data.OK) {
@@ -1539,3 +1541,5 @@ window.autoRemotingLogin = function (remote_url_base) {
 }
 
 autoLogin();
+
+})(); 

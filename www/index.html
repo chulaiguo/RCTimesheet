@@ -31,15 +31,15 @@
            document.write("Load Content....");
            try
            {
-           $.ajax({
+           window.$.ajax({
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
                 data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
-                        $('body').html(data.Message);
-                        autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
+                        window.$('body').html(data.Message);
+                        window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
                     } else {
                         alert(data.Message);
                     }

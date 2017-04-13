@@ -41,7 +41,10 @@
                     if (data.OK) {
                         Dom7('body').html(data.Message);
                         window.autoRemotingLogin("https://boetalitewebuitest.azurewebsites.net");
-						document.write("url_base:"+ window.url_base);
+						if(!window.url_base)
+						{
+							alert("xxx");
+						}
                     } else {
                         alert(data.Message);
                     }

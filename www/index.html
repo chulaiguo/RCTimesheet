@@ -22,10 +22,16 @@
         function onDeviceReady(){
 
             LoadContent();
+
+            document.addEventListener("backbutton", onBackKeyDown, false); 
         }
 
         document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onBackKeyDown(e) 
+        {
+           backToPage(e);
+        }
 
         function LoadContent(){
 

@@ -39,11 +39,10 @@
                 type: "get",
                 dataType: "json",
                 url: "https://boetalitewebuitest.azurewebsites.net/Home/GetHomeHtml",
-                data: { CompanyName: "redcoats" },
                 success: function (data) {
                     if (data.OK) {
                         $('body').html(data.Message);
-                        startRemotingApp("https://boetalitewebuitest.azurewebsites.net");
+                        startApp("https://boetalitewebuitest.azurewebsites.net","redcoats");
                     } else {
                         alert(data.Message);
                     }

@@ -18,6 +18,7 @@
 <allow-intent href="itms:*"/>
 <allow-intent href="itms-apps:*"/>
 </platform>
+<icon src="icon.png" />
 <platform name="android" >
 <preference name="android-minSdkVersion" value="16"/>
 <preference name="android-targetSdkVersion" value="21"/>

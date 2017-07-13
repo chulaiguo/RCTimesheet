@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns = "http://www.w3.org/ns/widgets"  xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" android-versionCode="39" ios-CFBundleVersion="1.9.0" windows-packageVersion="1.9.0" version="1.9.0" id = "readcoats.BOETA.RCHub"  >
-<name>RC Hub</name>
+<widget xmlns = "http://www.w3.org/ns/widgets"  xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" android-versionCode="39" ios-CFBundleVersion="1.9.0" windows-packageVersion="1.9.0" version="1.9.0" id = "readcoats.BOETA.RCTimesheet"  >
+<name>RC TimeSheet</name>
 <description>Redcoats time sheet application for the building managers</description>
 <author>Larry Li</author>
 <content src="index.html"/>
